@@ -1,0 +1,12 @@
+const fs = require('fs');
+const validator = require('gltf-validator');
+
+const asset = fs.readFileSync('./Box.gltf');
+
+validator.validateBytes(new Uint8Array(asset))
+    .then((report) => console.info('Validation succeeded: ', report))
+    .catch((error) => console.error('Validation failed: ', error));
+
+
+
+

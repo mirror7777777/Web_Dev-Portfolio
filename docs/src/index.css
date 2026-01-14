@@ -1,0 +1,346 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-background:  hsl(var(--background));
+  --color-darkmode : hsl(220, 12%, 60%);
+  --color-darkmode : hsl(222 47% 11%);
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(560 100% 50%);
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-card: hsl(var(--card));
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-shake: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-text: text 5s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.5s ease-in forwards;
+  --animate-fade-out: fade-out 0.5s ease-in forwards;
+  --animate-fade-in-delay1: fade-in 0.7s ease-in 0.5s forwards;
+  --animate-fade-in-delay2: fade-in 0.7s ease-in 0.7s forwards;
+  --animate-fade-in-delay3: fade-in 0.7s ease-in 0.6s forwards;
+  --animate-fade-in-delay4: fade-in 0.7s ease-in 0.4s forwards;
+  --animate-meteor: meteor 1s ease-in-out infinite;
+} 
+
+
+
+
+@keyframes float {
+  0%, 
+  100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes pulse-subtle {
+  0%, 
+  100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }    
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0
+, 0); }
+}
+@keyframes text {
+0% { transform: translateY(-0.1em); } /* Shows Text A */
+  10% { transform: translateY(0em); }
+  20% {  transform: translateY(-1.5em); } /* Slides up to show Text B */
+  30% { transform: translateY(-1.5em); }
+  40% { transform: translateY(-3em); } /* Slides up to show Text C */
+  50% { transform: translateY(-3em); }
+  60% { transform: translateY(-4.5em); }
+  70% { transform: translateY(-4.5em); ; }
+  85% { transform: translateY(-6.5em); ; }
+  100% { transform: translateY(-6.5em); ; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }    
+}
+@keyframes meteor {
+  0% { transform: translateX(0)  rotate(215deg); opacity: 1; }
+  50% { opacity : 1; }
+  100% { transform: translateX(-500px) rotate(215deg); opacity: 0; }
+
+
+}
+
+
+@layer base{
+
+  :root{
+    --color-border: hsl(222 22% 91%);
+    --color-background: hsl(201 78% 100%);
+    --color-foreground: hsl(222 47% 11%);
+    --color-primary: hsl(222 100% 56%);
+    --color-primary-foreground: hsl(201 78% 100%);
+    --color-card: hsl(222 22% 91%);
+  }
+
+
+
+}
+*{
+padding: 0;
+margin: 0;
+ 
+}
+body{
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+@layer components{
+    .darkmode{
+    background-color: var(--color-darkmode);
+  }
+  /* .light{
+    background-color: var(--color-background);
+  } */
+  .toogle-button{
+    @apply border-cyan-300 border-4 w-15 h-10 rounded-full flex  p-1 cursor-pointer absolute right-0 top-0 items-center  md:top-4 top-0.5 bg-gradient-to-r from-cyan-500 to-blue-500  transition-all duration-300 ease-in-out;
+ 
+  }
+  .star{
+    @apply absolute bg-red-700 rounded-full;
+  }
+
+
+  .spantext{
+    opacity: 1;
+    display: inline-block; 
+    animation-name: text;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in-out;
+    height: 2.0rem;
+    gap: 10px;
+    margin-bottom: 17px;
+    animation-delay: 3s;
+  }
+  .spantext h1{
+    display: flex ;
+    flex-direction: column;
+
+  }
+  
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  
+  
+}
+.navbar{
+   background: linear-gradient(to right,#14ff53, #2575fc);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding-bottom: 300px;
+   height: 120px;
+}
+.htext{
+  position: absolute;
+  top: 3%;
+  left: 4%;
+}
+.htext h1{
+  font-size: large;
+  font-weight: bold;
+  font-size: 30px; 
+}
+.ulheadersect li a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 70px;
+  margin-left: 20px;
+  font-family: sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 30px;
+  border: 4px solid black;
+  border-radius: 10px;
+  background-color: rgb(231, 253, 253);
+  gap: 10px;
+  color: black;
+  width: fit-content;
+  height: 1.8em;
+  overflow: hidden;
+  padding: 6px;
+  white-space: nowrap;
+}
+.uclientcolor{
+   background-color: rgb(231, 253, 253); 
+}
+
+
+
+
+
+
+
+
+  
+
+}
+ @utility animate{
+      border: 1px solid transparent;
+      color: black;
+      width: fit-content;
+      height: 1.8em;
+      overflow: hidden;
+      padding: 6px;
+      white-space: nowrap; 
+
+    
+  @media (max-width: 850px) {
+      border: 1px solid red;
+      color: black;
+      width: fit-content;
+      height: 1.5em;
+      overflow: hidden;
+      padding: 3px;
+      white-space: nowrap; 
+      background-color :red;
+      position: absolute;
+      left: -390px
+      
+    
+  } 
+   
+  }
+
+@utility mintext{
+  @media (max-width: 850px){
+    font-size: 25px;
+    color:green;
+
+
+
+  
+
+  }
+}
+@utility responsivetext {
+  @media (max-width: 850px){
+    font-size: 25px;
+    color : blue;
+    margin-left: -400px;
+    
+    
+    
+
+
+
+  
+
+  }
+}
+@utility  themodel{
+  position: absolute;
+  left : 60%;
+  top : 190px;
+  max-width: 100%;
+
+
+  
+  
+  
+  
+  @media (max-width: 850px){
+   
+  position: absolute;
+  left : 60%;
+  top : 200px;
+  }
+
+
+  
+}
+
+@utility modelSect{
+  position: absolute;
+  left : 70%;
+  top : 190px;
+ 
+}
+
+
+
+
+
+
+
+
+:root{
+    --background: 201 78% 100%;
+    --foreground: 222 47% 11%;
+    --border: 222 22% 91%;
+    --primary: 222 100% 56%;
+    --primary-foreground: 222 47% 11%;
+    --card: 222 22% 91%;
+    
+  }  
+
+
+
+
+
+
+
+
+@utility container{
+  margin-inline:auto;
+  padding-inline:1rem;
+  width:100%;
+  max-width: 100%;
+
+    @screen sm {
+      max-width: 640px;
+      
+    }
+    @screen md {
+      max-width: 768px;
+    }
+    @screen lg {
+      max-width: 1024px;
+    }
+    @screen xl {
+      max-width: 1280px;
+    }
+    @screen 2xl {
+      max-width: 1536px;
+    }
+  
+  
+} 
+@utility card-hover{
+  @apply transition-transform duration-300 ease-in-out;
+
+
+}
+@utility gradient-border{
+  @apply relative;
+  border: 4px solid;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: linear-gradient(to right, #7928CA, #FF0080);
+} 
+
+
+
