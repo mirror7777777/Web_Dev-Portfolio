@@ -2,11 +2,12 @@ import react from 'react';
 import { Servicetext } from '../assets/data/svgObj';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
+import { memo } from 'react';
 
 
-export default function ClientCard() {
+const ClientCard =()=> {
     return (
-        <div className="flex flex-row gap-20 uclient" id='uclient'>
+        <div className="flex flex-row gap-20 uclient" id='uclient' >
            {Servicetext.map((item)=>{
             return(
                 <div key={item.label}>
@@ -21,3 +22,4 @@ export default function ClientCard() {
         </div>
     );
 }
+export default memo(ClientCard);

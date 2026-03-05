@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Sun , Moon} from 'lucide-react'
+import { memo } from 'react';
 
-export default function ThemeToggle() {
+
+const ThemeToggle = () => {
     const [darkmode, setDarkmode] = useState(false);
 
     useEffect(() => {
@@ -35,3 +37,4 @@ export default function ThemeToggle() {
     </div>
   )
 }
+export default memo(ThemeToggle);

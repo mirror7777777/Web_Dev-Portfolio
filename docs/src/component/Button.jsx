@@ -1,15 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { memo } from 'react';
 
-export default function Button() {
+const Button = ( className , text ) => {
 
     return(
-        <a class = 'ctaButton-wrapper'>
-            <div class="cta-group group">
-             <div class="bg-circle">
-                <p>see my work</p>
+        <a className = {`${className ?? ''} buttons`}>
+            <div className="blob1">
+             <div className="blob2">
+                <p className="inner">{text}</p>
              </div>
             </div>
         </a>
     )
-}
+} 
+export default memo(Button);

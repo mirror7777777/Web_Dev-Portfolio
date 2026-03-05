@@ -2,9 +2,10 @@ import { createRoot } from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import { BoxGeometry } from 'three'
 import { OrbitControls } from '@react-three/drei'
+import { memo } from 'react';
 
 
-export default function Boxap() {
+const Boxap = () => {
   return (
     <div id="canvas-container">
         <Canvas  camera={{position:[1,1,5] , fov:65}}>
@@ -19,3 +20,4 @@ export default function Boxap() {
     </div>
   )
 }
+export default memo(Boxap);
