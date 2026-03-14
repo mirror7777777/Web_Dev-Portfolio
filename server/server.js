@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 const app = express();
 import MongoDb from './config/connect.js';
 dotenv.config();
-const Port = process.env.Port || 8749;
+const Port = process.env.PORT_Number;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors())
